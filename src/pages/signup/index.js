@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import * as C from "./styles";
+import * as StyleSignup from "./styles";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
@@ -35,9 +35,9 @@ const Signup = () => {
   };
 
   return (
-    <C.Container>
-      <C.Label>SISTEMA DE LOGIN</C.Label>
-      <C.Content>
+    <StyleSignup.Container>
+      <StyleSignup.Label>SISTEMA DE LOGIN</StyleSignup.Label>
+      <StyleSignup.Content>
         <Input
           type="email"
           placeholder="Digite seu E-mail"
@@ -56,16 +56,16 @@ const Signup = () => {
           value={senha}
           onChange={(e) => [setSenha(e.target.value), setError("")]}
         />
-        <C.labelError>{error}</C.labelError>
+        <StyleSignup.labelError>{error}</StyleSignup.labelError>
         <Button Text="Inscrever-se" onClick={handleSignup} />
-        <C.LabelSignin>
+        <StyleSignup.LabelSignin>
           Já tem uma conta?
-          <C.Strong>
+          <StyleSignup.Strong>
             <Link to="/">&nbsp;Entre</Link>
-          </C.Strong>
-        </C.LabelSignin>
-      </C.Content>
-    </C.Container>
+          </StyleSignup.Strong>
+        </StyleSignup.LabelSignin>
+      </StyleSignup.Content>
+    </StyleSignup.Container>
   );
 };
 
