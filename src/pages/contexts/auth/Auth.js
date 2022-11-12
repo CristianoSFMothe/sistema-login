@@ -40,6 +40,28 @@ export const AuthProvider = ({children}) => {
             return 'Usuário não cadastrado';
         }
     };
+    
+    const signup = (email, password) => {
+      const usersStorage = JSON.parse(localStorage.getItem('users_db'));
+      
+      const hasUser = usersStorage?.filter((user) => user.email === email);
+      
+      if (hasUser?.length) {
+        return 'Já tem uma conta com esse E-mail';
+      }
+      
+      let newUser;
+      
+      if (usersStorage) {
+        newUser = [...usersStorage, { email, password }];
+      } else {
+        newUser = [{ email, password }];
+      }
+      
+      localStorage.setItem('users_db', JSON.stringify(newUser));
+      
+      return ;
+    }
 
     return <AuthContext.Provider>{children}</AuthContext.Provider>;
 };
